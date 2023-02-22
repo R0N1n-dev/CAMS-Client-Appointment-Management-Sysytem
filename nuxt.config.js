@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
-  css: ["captain-icons/dist/captain-icons.min.css"],
+  css: ["captain-icons/dist/captain-icons.css"],
   components: true,
   modules: ["@inkline/nuxt"],
   inkline: {
