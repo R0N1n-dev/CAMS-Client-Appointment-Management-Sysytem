@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model Client {
-  id           String        @id @default(uuid())
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
   clientNum    String        @unique
   names        String
   age          Int           @default(0)
@@ -21,9 +21,9 @@ model Client {
 }
 
 model Appointment {
-  id       String   @id @default(uuid())
-  client   Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
-  clientId String
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  Client   Client?  @relation(fields: [clientId], references: [id])
+  clientId String?  @db.ObjectId
   date     DateTime @default(now())
   advice   String[]
 }
