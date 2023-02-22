@@ -104,6 +104,11 @@
           </div>
         </i-column>
       </i-row>
+      <i-button
+        @click.prevent="addClient"
+        class="_margin-x:auto _display:flex _margin-y:2"
+        >Add</i-button
+      >
     </i-form>
   </i-container>
 </template>
