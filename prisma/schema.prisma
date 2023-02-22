@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Client {
+  id           String        @id @default(uuid())
+  clientNum    String        @unique
+  names        String
+  age          Int           @default(0)
+  profession   String
+  history      String[]
+  contact      String
+  email        String?
+  appointments Appointment[]
+  diagnosis    String[]
+}
+
+model Appointment {
+  id       String   @id @default(uuid())
+  client   Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  clientId String
+  date     DateTime @default(now())
+  advice   String[]
+}
