@@ -7,6 +7,10 @@
 </template>
 
 <style lang="scss">
+html {
+  scroll-behavior: smooth;
+}
+
 @import "@inkline/inkline/css/variables";
 @import "@inkline/inkline/css/mixins";
 
@@ -24,6 +28,5 @@
 .page-enter-from,
 .page-leave-to {
   opacity: 0;
-  filter: blur(1rem);
 }
 </style>

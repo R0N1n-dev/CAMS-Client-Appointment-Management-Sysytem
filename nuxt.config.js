@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     pageTransition: { name: "page", mode: "out-in" },
   },
   head: {
-    title: "nuxt3-testbed",
+    title: "CAMS",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
+  css: ["captain-icons/dist/captain-icons.min.css"],
   components: true,
   modules: ["@inkline/nuxt"],
   inkline: {

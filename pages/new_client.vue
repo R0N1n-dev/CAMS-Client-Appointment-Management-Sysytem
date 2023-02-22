@@ -107,7 +107,7 @@
       <i-button
         @click.prevent="addClient"
         class="_margin-x:auto _display:flex _margin-y:2"
-        >Add</i-button
+        >Add Client</i-button
       >
     </i-form>
   </i-container>
@@ -153,7 +153,7 @@ async function addClient() {
     body: {
       names: client.value.names,
       clientNum: cuid(),
-      age: client.value.age,
+      age: parseInt(client.value.age),
       contact: client.value.contact,
       email: client.value.email,
       profession: client.value.profession,

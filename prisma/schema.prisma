@@ -11,7 +11,7 @@ model Client {
   id           String        @id @default(auto()) @map("_id") @db.ObjectId
   clientNum    String        @unique
   names        String
-  age          Int           @default(0)
+  age          Int
   profession   String
   history      String[]
   contact      String
@@ -22,7 +22,7 @@ model Client {
 
 model Appointment {
   id       String   @id @default(auto()) @map("_id") @db.ObjectId
-  Client   Client?  @relation(fields: [clientId], references: [id])
+  Client   Client?  @relation(fields: [clientId], references: [id], onDelete: Cascade)
   clientId String?  @db.ObjectId
   date     DateTime @default(now())
   advice   String[]
