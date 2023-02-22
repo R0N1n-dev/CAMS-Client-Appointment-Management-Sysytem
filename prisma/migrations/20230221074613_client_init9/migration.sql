@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE "Client" ADD COLUMN     "age" INTEGER NOT NULL DEFAULT 0;
