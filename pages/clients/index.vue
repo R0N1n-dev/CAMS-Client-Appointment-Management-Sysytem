@@ -1,10 +1,9 @@
 <template>
   <i-container>
-    <div v-if="data.length === 0" align="center">
-      <p class="_text:bold _font-size:lg">Add client data, None found</p>
-
+    <div align="center">
+      <p class="h2">Add client Data</p>
       <i-tooltip placement="right">
-        <i-button circle size="lg" to="/new_client"
+        <i-button class="_margin-y:1" circle size="lg" to="/new_client"
           ><i
             class="cap-icon ci-plus"
             style="cursor: pointer; font-size: 2rem"
@@ -13,11 +12,7 @@
         <template #body>Add Client</template>
       </i-tooltip>
     </div>
-    <div v-else>
-      <h1 class="_text-align:center">
-        No. of Clients
-        <i-badge color="primary">{{ data.length }}</i-badge>
-      </h1>
+    <div>
       <i-row>
         <i-column v-for="client in data" :key="client.id" class="_margin-y:1">
           <nuxt-link
