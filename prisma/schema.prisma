@@ -8,16 +8,17 @@ datasource db {
 }
 
 model Client {
-  id           String        @id @default(auto()) @map("_id") @db.ObjectId
-  clientNum    String        @unique
-  names        String
-  age          Int
-  profession   String
-  history      String[]
-  contact      String
-  email        String?
-  appointments Appointment[]
-  diagnosis    String[]
+  id             String        @id @default(auto()) @map("_id") @db.ObjectId
+  clientNum      String        @unique
+  names          String
+  age            Int
+  profession     String
+  history        String[]
+  currentIllness String[]
+  contact        String
+  email          String?
+  appointments   Appointment[]
+  diagnosis      String[]
 }
 
 model Appointment {

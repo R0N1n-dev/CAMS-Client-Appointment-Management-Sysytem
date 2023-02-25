@@ -18,7 +18,7 @@ export default defineNuxtConfig({
   modules: ["@inkline/nuxt"],
   inkline: {
     // Plugin options (optional)
-    colorMode: "system",
+    // colorMode: "system",
   },
   buildModules: [],
 });

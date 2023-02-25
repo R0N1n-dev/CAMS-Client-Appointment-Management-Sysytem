@@ -50,6 +50,47 @@
           </i-form-group>
         </i-column>
       </i-row>
+      <i-row>
+        <i-column>
+          <i-form-group>
+            <i-form-label>History of family health conditions</i-form-label>
+            <i-checkbox-group v-model="client.history">
+              <i-checkbox
+                v-for="condition in conditions"
+                :key="condition"
+                :value="condition"
+                >{{ condition }}</i-checkbox
+              >
+            </i-checkbox-group>
+          </i-form-group>
+        </i-column>
+        <i-column
+          xs="12"
+          :md="client.illnesses.length === 0 ? '6' : '4'"
+          :lg="client.illnesses.length === 0 ? '6' : '4'"
+        >
+          <i-form-group>
+            <i-form-label>Any current illnesses</i-form-label>
+            <i-input v-model="illness">
+              <template #append>
+                <i-button @click.prevent="addIllness">Add</i-button>
+              </template>
+            </i-input>
+          </i-form-group>
+        </i-column>
+
+        <i-column>
+          <div v-if="client.illnesses.length !== 0" class="_margin-y:l">
+            <i-badge
+              class="_margin-right:1"
+              style="margin-block: 0.2rem"
+              v-for="(illness, index) in client.illnesses"
+              :key="index"
+              >{{ illness }}</i-badge
+            >
+          </div>
+        </i-column>
+      </i-row>
       <i-row class="_margin-y:1">
         <i-column
           xs="12"
@@ -122,16 +163,32 @@ const length = 5;
 const cuid = init({ length });
 const eachDiagnosis = ref("");
 const advice = ref("");
+const conditions = ref([
+  "Cancer",
+  "Diabetes",
+  "Hypertension/High blood pressure",
+  "Heart disease",
+]);
+const illness = ref("");
 const client = ref({
   names: "",
   clientNum: null,
   contact: null,
   age: null,
   email: "",
+  history: [],
+  illnesses: [],
   profession: "",
   diagnosis: [],
   advice: [],
 });
+
+function addIllness() {
+  if (illness.value !== "") {
+    client.value.illnesses.push(illness.value);
+    illness.value = "";
+  }
+}
 
 function addAdvice() {
   if (advice.value !== "") {
@@ -155,6 +212,8 @@ async function addClient() {
       clientNum: cuid(),
       age: parseInt(client.value.age),
       contact: client.value.contact,
+      history: client.value.history,
+      illnesses: client.value.illnesses,
       email: client.value.email,
       profession: client.value.profession,
       diagnosis: client.value.diagnosis,
@@ -166,6 +225,8 @@ async function addClient() {
   client.value.clientNum = null;
   client.value.contact = null;
   client.value.age = null;
+  client.value.history = [];
+  client.value.illnesses = [];
   client.value.email = "";
   client.value.profession = "";
   client.value.diagnosis = [];

@@ -18,6 +18,8 @@ export default defineEventHandler(async (event) => {
         names: body.names,
         age: body.age,
         contact: body.contact,
+        history: body.history,
+        currentIllness: body.illnesses,
         email: body.email,
         profession: body.profession,
         diagnosis: body.diagnosis,
