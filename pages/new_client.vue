@@ -155,8 +155,6 @@
 </template>
 
 <script setup>
-import { useToast } from "vue-toastification";
-const toast = useToast();
 definePageMeta({
   keepalive: true,
 });
@@ -222,7 +220,6 @@ async function addClient() {
       advice: client.value.advice,
     },
   });
-  toast.success("Successfully added", { timeout: 2000 });
   console.log("Response", res);
   client.value.names = "";
   client.value.clientNum = null;
