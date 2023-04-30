@@ -11,16 +11,6 @@ html {
   scroll-behavior: smooth;
 }
 
-@import "@inkline/inkline/css/variables";
-@import "@inkline/inkline/css/mixins";
-
-:root {
-  --color--primary--h: 195deg;
-  --color--primary--s: 77%;
-  --color--primary--l: 39%;
-  --height: 100vh;
-  --width: 6rem;
-}
 .page-enter-active,
 .page-leave-active {
   transition: all 0.08s;

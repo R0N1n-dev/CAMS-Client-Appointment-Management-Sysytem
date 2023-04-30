@@ -1,5 +1,5 @@
 <template>
-  <i-container class="_text-align:center">
+  <IContainer class="_text-align:center">
     <p class="_font-weight:bold d2">CAMS</p>
     <p class="lead">Client Appointment Management System</p>
     <p class="_font-size:lg">
@@ -7,7 +7,7 @@
       <a href="https://www.prisma.io/">Prisma</a> and
       <a href="https://www.inkline.io/">InklineUI</a>
     </p>
-  </i-container>
+  </IContainer>
 </template>
 
 <script setup></script>

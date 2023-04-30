@@ -1,38 +1,35 @@
 <template>
-  <i-container>
+  <IContainer>
     <div align="center">
       <p class="h2">Add client Data</p>
-      <i-tooltip placement="right">
-        <i-button class="_margin-y:1" circle size="lg" to="/new_client"
-          ><i
-            class="cap-icon ci-plus"
-            style="cursor: pointer; font-size: 2rem"
-          ></i
-        ></i-button>
+      <ITooltip placement="right">
+        <IButton class="_margin-y:1" circle size="lg" to="/new_client">
+          <i-icon name="ink-check" />
+        </IButton>
         <template #body>Add Client</template>
-      </i-tooltip>
+      </ITooltip>
     </div>
     <div>
-      <i-row>
-        <i-column v-for="client in data" :key="client.id" class="_margin-y:1">
+      <IRow>
+        <IColumn v-for="client in data" :key="client.id" class="_margin-y:1">
           <nuxt-link
             class="_text-decoration:none"
             :to="{ name: 'clients-num', params: { num: client.clientNum } }"
           >
-            <i-card>
+            <ICard>
               <h4 class="card-title">{{ client.names }}</h4>
               <p class="card-subtitle">{{ client.email }}</p>
               <template #footer>
-                <i-button @click.prevent="deleteClient(client.clientNum)"
-                  >X</i-button
+                <IButton @click.prevent="deleteClient(client.clientNum)"
+                  >X</IButton
                 >
               </template>
-            </i-card>
+            </ICard>
           </nuxt-link>
-        </i-column>
-      </i-row>
+        </IColumn>
+      </IRow>
     </div>
-  </i-container>
+  </IContainer>
 </template>
 
 <script setup>

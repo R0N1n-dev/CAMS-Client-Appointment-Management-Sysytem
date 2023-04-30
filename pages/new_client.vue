@@ -1,160 +1,162 @@
 <template>
-  <i-container>
+  <IContainer>
     <h2 align="center">Client Registration</h2>
-    <i-form @keyup.prevent.enter="addClient">
-      <i-row class="_margin-y:1">
-        <i-column xs="12" lg="4" md="4">
-          <i-form-group>
-            <i-form-label>Names</i-form-label>
-            <i-input v-model="client.names" placeholder="names" clearable />
-          </i-form-group>
-        </i-column>
-        <i-column xs="12" lg="4" md="4">
-          <i-form-group>
-            <i-form-label>Age</i-form-label>
-            <i-input v-model="client.age" placeholder="Age e.g 42" clearable />
-          </i-form-group>
-        </i-column>
-        <i-column>
-          <i-form-group>
-            <i-form-label>Contact</i-form-label>
-            <i-input
+    <IForm @keyup.prevent.enter="addClient">
+      <IRow class="_margin-y:1">
+        <IColumn xs="12" lg="4" md="4">
+          <IFormGroup>
+            <IFormLabel>Names</IFormLabel>
+            <IInput v-model="client.names" placeholder="names" clearable />
+          </IFormGroup>
+        </IColumn>
+        <IColumn xs="12" lg="4" md="4">
+          <IFormGroup>
+            <IFormLabel>Age</IFormLabel>
+            <IInput v-model="client.age" placeholder="Age e.g 42" clearable />
+          </IFormGroup>
+        </IColumn>
+        <IColumn>
+          <IFormGroup>
+            <IFormLabel>Contact</IFormLabel>
+            <IInput
               v-model="client.contact"
               placeholder="Phone e.g. 0772684848"
               clearable
             />
-          </i-form-group>
-        </i-column>
-      </i-row>
-      <i-row class="_margin-y:1">
-        <i-column xs="12" md="6" lg="6">
-          <i-form-group>
-            <i-form-label>Email</i-form-label>
-            <i-input
+          </IFormGroup>
+        </IColumn>
+      </IRow>
+      <IRow class="_margin-y:1">
+        <IColumn xs="12" md="6" lg="6">
+          <IFormGroup>
+            <IFormLabel>Email</IFormLabel>
+            <IInput
               v-model="client.email"
               type="email"
               placeholder="johndoe@mail.com"
               clearable
             />
-          </i-form-group>
-        </i-column>
-        <i-column xs="12" md="6" lg="6">
-          <i-form-group>
-            <i-form-label>Profession</i-form-label>
-            <i-input
+          </IFormGroup>
+        </IColumn>
+        <IColumn xs="12" md="6" lg="6">
+          <IFormGroup>
+            <IFormLabel>Profession</IFormLabel>
+            <IInput
               v-model="client.profession"
               type="text"
               placeholder="e.g doctor, teacher, accountant"
               clearable
             />
-          </i-form-group>
-        </i-column>
-      </i-row>
-      <i-row>
-        <i-column>
-          <i-form-group>
-            <i-form-label>History of family health conditions</i-form-label>
-            <i-checkbox-group v-model="client.history">
-              <i-checkbox
+          </IFormGroup>
+        </IColumn>
+      </IRow>
+      <IRow>
+        <IColumn>
+          <IFormGroup>
+            <IFormLabel>History of family health conditions</IFormLabel>
+            <ICheckboxGroup v-model="client.history">
+              <ICheckbox
                 v-for="condition in conditions"
                 :key="condition"
                 :value="condition"
-                >{{ condition }}</i-checkbox
+                >{{ condition }}</ICheckbox
               >
-            </i-checkbox-group>
-          </i-form-group>
-        </i-column>
-        <i-column
+            </ICheckboxGroup>
+          </IFormGroup>
+        </IColumn>
+        <IColumn
           xs="12"
           :md="client.illnesses.length === 0 ? '6' : '4'"
           :lg="client.illnesses.length === 0 ? '6' : '4'"
         >
-          <i-form-group>
-            <i-form-label>Any current illnesses</i-form-label>
-            <i-input v-model="illness">
+          <IFormGroup>
+            <IFormLabel>Any current illnesses</IFormLabel>
+            <IInput v-model="illness">
               <template #append>
-                <i-button @click.prevent="addIllness">Add</i-button>
+                <IButton @click.prevent="addIllness">Add</IButton>
               </template>
-            </i-input>
-          </i-form-group>
-        </i-column>
+            </IInput>
+          </IFormGroup>
+        </IColumn>
 
-        <i-column>
+        <IColumn>
           <div v-if="client.illnesses.length !== 0" class="_margin-y:l">
-            <i-badge
+            <IBadge
               class="_margin-right:1"
               style="margin-block: 0.2rem"
               v-for="(illness, index) in client.illnesses"
               :key="index"
-              >{{ illness }}</i-badge
+              >{{ illness }}</IBadge
             >
           </div>
-        </i-column>
-      </i-row>
-      <i-row class="_margin-y:1">
-        <i-column
+        </IColumn>
+      </IRow>
+      <IRow class="_margin-y:1">
+        <IColumn
           xs="12"
           md="12"
           :lg="client.diagnosis.length === 0 ? '12' : '6'"
         >
-          <i-form-group>
-            <i-form-label>Diagnosis</i-form-label>
-            <i-input v-model="eachDiagnosis" placeholder="Diagnosis" clearable>
+          <IFormGroup>
+            <IFormLabel>Diagnosis</IFormLabel>
+            <IInput v-model="eachDiagnosis" placeholder="Diagnosis" clearable>
               <template #append>
-                <i-button @click.prevent="addDiagnosis">Add</i-button>
+                <IButton @click.prevent="addDiagnosis">Add</IButton>
               </template>
-            </i-input>
-          </i-form-group>
-        </i-column>
-        <i-column>
+            </IInput>
+          </IFormGroup>
+        </IColumn>
+        <IColumn>
           <div v-if="client.diagnosis.length !== 0" class="_margin-y:1">
-            <i-badge
+            <IBadge
               class="_margin-right:1"
               style="margin-block: 0.2rem"
               v-for="(diagnosis, index) in client.diagnosis"
               :key="index"
-              >{{ diagnosis }}</i-badge
+              >{{ diagnosis }}</IBadge
             >
           </div>
-        </i-column>
-      </i-row>
-      <i-row>
-        <i-column xs="12" md="12" :lg="client.advice.length === 0 ? '12' : '6'">
-          <i-form-group>
-            <i-form-label>Advice</i-form-label>
-            <i-textarea
+        </IColumn>
+      </IRow>
+      <IRow>
+        <IColumn xs="12" md="12" :lg="client.advice.length === 0 ? '12' : '6'">
+          <IFormGroup>
+            <IFormLabel>Advice</IFormLabel>
+            <ITextarea
               v-model="advice"
               placeholder="Any advice/recommendations given"
               clearable
             >
               <template #append>
-                <i-button @click.prevent="addAdvice">Add</i-button>
+                <IButton @click.prevent="addAdvice">Add</IButton>
               </template>
-            </i-textarea>
-          </i-form-group>
-        </i-column>
-        <i-column>
+            </ITextarea>
+          </IFormGroup>
+        </IColumn>
+        <IColumn>
           <div v-if="client.advice.length !== 0" class="_margin-y:1">
-            <i-badge
+            <IBadge
               class="_margin-right:1"
               style="margin-block: 0.2rem"
               v-for="(advice, index) in client.advice"
               :key="index"
-              >{{ advice }}</i-badge
+              >{{ advice }}</IBadge
             >
           </div>
-        </i-column>
-      </i-row>
-      <i-button
+        </IColumn>
+      </IRow>
+      <IButton
         @click.prevent="addClient"
         class="_margin-x:auto _display:flex _margin-y:2"
-        >Add Client</i-button
+        >Add Client</IButton
       >
-    </i-form>
-  </i-container>
+    </IForm>
+  </IContainer>
 </template>
 
 <script setup>
+import { useToast } from "vue-toastification";
+const toast = useToast();
 definePageMeta({
   keepalive: true,
 });
@@ -220,6 +222,7 @@ async function addClient() {
       advice: client.value.advice,
     },
   });
+  toast.success("Successfully added", { timeout: 2000 });
   console.log("Response", res);
   client.value.names = "";
   client.value.clientNum = null;
