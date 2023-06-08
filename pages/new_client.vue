@@ -1,5 +1,6 @@
 <template>
   <IContainer>
+    <IToastContainer />
     <h2 align="center">Client Registration</h2>
     <IForm @keyup.prevent.enter="addClient">
       <IRow class="_margin-y:1">
@@ -155,6 +156,15 @@
 </template>
 
 <script setup>
+import { useToast } from "@inkline/inkline/composables";
+const toast = useToast();
+function clientAdded() {
+  toast.show({
+    title: "Success",
+    message: "New client added",
+    color: "success",
+  });
+}
 definePageMeta({
   keepalive: true,
 });
@@ -220,6 +230,7 @@ async function addClient() {
       advice: client.value.advice,
     },
   });
+  clientAdded();
   console.log("Response", res);
   client.value.names = "";
   client.value.clientNum = null;

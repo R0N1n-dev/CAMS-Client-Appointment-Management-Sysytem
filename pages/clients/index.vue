@@ -13,7 +13,7 @@
       <IRow>
         <IColumn v-for="client in data" :key="client.id" class="_margin-y:1">
           <nuxt-link
-            class="_text-decoration:none"
+            class="_text-decoration:none!"
             :to="{ name: 'clients-num', params: { num: client.clientNum } }"
           >
             <ICard>

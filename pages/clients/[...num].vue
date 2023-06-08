@@ -8,7 +8,14 @@
       >
       <h4 class="card-title">{{ data.names }}</h4>
       <p class="card-subtitle">{{ data.email }}</p>
-      <p>{{ data.history }}</p>
+      <div>
+        <p v-if="(data.history.length = 1)">{{ data.history[0] }}</p>
+        <ul v-else>
+          <li v-for="i in data.history" :key="i">
+            {{ data.history }}
+          </li>
+        </ul>
+      </div>
       <IButton @click.prevent="showModal = !showModal">Add resolutions</IButton>
       <IModal v-model="showModal">
         <template #header>Update Client Appointment Info</template>
