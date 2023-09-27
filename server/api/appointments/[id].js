@@ -1,6 +1,6 @@
 import prisma from "~~/lib/prisma.js";
 export default defineEventHandler(async (event) => {
-  if ((event.node, req.method === "PUT")) {
+  if (event.node.req.method === "PUT") {
     const body = await readBody(event);
     const updatedAppointment = await prisma.appointment.update({
       where: {

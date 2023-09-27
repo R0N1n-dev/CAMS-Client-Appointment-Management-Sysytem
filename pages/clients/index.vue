@@ -9,7 +9,10 @@
         <template #body>Add Client</template>
       </ITooltip>
     </div>
-    <div>
+    <div v-if="pending" class="_display:flex!">
+      <ILoader class="_margin-x:auto!" />
+    </div>
+    <div v-else>
       <IRow>
         <IColumn v-for="client in data" :key="client.id" class="_margin-y:1">
           <nuxt-link class="_text-decoration:none!"
