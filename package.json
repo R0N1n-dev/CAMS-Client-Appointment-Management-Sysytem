@@ -10,17 +10,18 @@
     "prisma:generate": "prisma generate"
   },
   "devDependencies": {
-    "nuxt": "^3.2.0",
-    "prisma": "^4.10.1",
-    "sass": "^1.0.0",
+    "@inkline/config": "^1.0.0",
     "@inkline/plugin": "^1.0.0",
-    "@inkline/config": "^1.0.0"
+    "@nuxt/devtools": "^0.8.5",
+    "nuxt": "^3.7.4",
+    "prisma": "^5.3.1",
+    "sass": "^1.68.0"
   },
   "dependencies": {
+    "@inkline/inkline": "next",
     "@paralleldrive/cuid2": "^2.0.1",
-    "@prisma/client": "^4.10.1",
-    "captain-icons": "^0.2.0",
-    "@inkline/inkline": "next"
+    "@prisma/client": "^5.3.1",
+    "captain-icons": "^0.2.0"
   },
   "type": "module"
 }

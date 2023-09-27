@@ -4,7 +4,7 @@
       <p class="h2">Add client Data</p>
       <ITooltip placement="right">
         <IButton class="_margin-y:1" circle size="lg" to="/new_client">
-          <i-icon name="ink-check" />
+          <i-icon name="ink-plus" />
         </IButton>
         <template #body>Add Client</template>
       </ITooltip>
@@ -12,17 +12,13 @@
     <div>
       <IRow>
         <IColumn v-for="client in data" :key="client.id" class="_margin-y:1">
-          <nuxt-link
-            class="_text-decoration:none!"
-            :to="{ name: 'clients-num', params: { num: client.clientNum } }"
-          >
+          <nuxt-link class="_text-decoration:none!"
+            :to="{ name: 'clients-clients-num', params: { num: client.clientNum } }">
             <ICard>
               <h4 class="card-title">{{ client.names }}</h4>
               <p class="card-subtitle">{{ client.email }}</p>
               <template #footer>
-                <IButton @click.prevent="deleteClient(client.clientNum)"
-                  >X</IButton
-                >
+                <IButton @click.prevent="deleteClient(client.clientNum)">X</IButton>
               </template>
             </ICard>
           </nuxt-link>

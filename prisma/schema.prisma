@@ -27,4 +27,12 @@ model Appointment {
   clientId String?  @db.ObjectId
   date     DateTime @default(now())
   advice   String[]
+  results  Result?
+}
+
+model Result {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  Appointment   Appointment? @relation(fields: [appointmentId], references: [id])
+  appointmentId String?      @unique
+  feedback      String[]
 }

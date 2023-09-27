@@ -1,6 +1,6 @@
 <template>
   <ILayout>
-    <INav class="_position:sticky-top _border-bottom">
+    <INav class="_position:top _border-bottom">
       <INavItem to="/">Home</INavItem>
       <INavItem to="/clients">Clients</INavItem>
       <INavItem to="/new_client">Add client</INavItem>
