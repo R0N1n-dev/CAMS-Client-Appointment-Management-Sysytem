@@ -1,5 +1,6 @@
 <template>
   <IContainer>
+    <IToastContainer />
     <div align="center">
       <p class="h2">Add client Data</p>
       <ITooltip placement="right">
@@ -32,7 +33,8 @@
 </template>
 
 <script setup>
-
+import { useToast } from "@inkline/inkline/composables";
+const toast = useToast();
 const { data, pending, refresh } = useLazyFetch("/api/clients");
 function clientDeleted() {
   toast.show({
