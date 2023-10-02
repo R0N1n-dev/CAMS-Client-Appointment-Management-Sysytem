@@ -32,9 +32,18 @@
 </template>
 
 <script setup>
+
 const { data, pending, refresh } = useLazyFetch("/api/clients");
+function clientDeleted() {
+  toast.show({
+    title: "Success",
+    message: "Client Entry Deleted ",
+    color: "danger",
+  });
+}
 async function deleteClient(num) {
   const res = await $fetch(`/api/clients/${num}`, { method: "DELETE" });
+  clientDeleted();
   refresh();
 }
 </script>
