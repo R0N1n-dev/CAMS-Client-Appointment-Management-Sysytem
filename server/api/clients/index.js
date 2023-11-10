@@ -5,6 +5,9 @@ export default defineEventHandler(async (event) => {
       include: {
         appointments: true,
       },
+      cacheStrategy: {
+        ttl: 60,
+      },
     });
     //console.log(clients);
     return clients;

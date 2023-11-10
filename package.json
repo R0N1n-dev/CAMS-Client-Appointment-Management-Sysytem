@@ -12,15 +12,16 @@
   "devDependencies": {
     "@inkline/config": "^1.0.0",
     "@inkline/plugin": "^1.0.0",
-    "@nuxt/devtools": "^0.8.5",
-    "nuxt": "^3.7.4",
+    "@nuxt/devtools": "^1.0.1",
+    "nuxt": "^3.8.1",
     "prisma": "^5.3.1",
     "sass": "^1.68.0"
   },
   "dependencies": {
-    "@inkline/inkline": "next",
+    "@inkline/inkline": "^4.1.0-0",
     "@paralleldrive/cuid2": "^2.0.1",
     "@prisma/client": "^5.3.1",
+    "@prisma/extension-accelerate": "^0.6.2",
     "captain-icons": "^0.2.0"
   },
   "type": "module"
